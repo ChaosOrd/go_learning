@@ -14,11 +14,16 @@ func main() {
 	for idx, _ := range cipherText {
 		keywordIdx := idx % keywordLength
 		keywordChar := keyword[keywordIdx]
+		// fmt.Printf("KeywordChar=%c\n", keywordChar)
+		repeatedString = repeatedString + string(keyword[keywordIdx])
 		offset := keywordChar - 'A'
+		// fmt.Printf("Offset=%v\n", offset)
 		cipherChar := cipherText[idx]
-		decodedChar := (cipherChar-'A'-offset)%byte(26) + 'A'
+		decodedChar := (26 + cipherChar - 'A' - offset) % byte(26) + 'A'
+		// fmt.Printf("CipherChar: %c, CipherCharVal: %v\n", cipherChar, cipherChar)
+		// fmt.Printf("DecodedChar: %c, DecodedCharVal: %v\n", decodedChar, decodedChar)
 		fmt.Printf("%c", decodedChar)
 	}
 
-	fmt.Printf(repeatedString)
+	fmt.Printf("\n%v", repeatedString)
 }
