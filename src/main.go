@@ -1,11 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"4_collections/words"
+	"5_state_and_behaviour/interfaces"
 )
 
 func main() {
-	text := "Hello World!"
-	fmt.Printf("%v", words.CountFrequency(text))
+	interfaces.TestInterfaces()
 }
